@@ -36,6 +36,6 @@ print("\nAge Percentiles:\n", age_percentiles)
 # Create a Violin plot for 'height'
 plt.figure(figsize=(8, 5))
 sns.violinplot(data=cleaned_df['htm3'])
-plt.title('Violin Plot of Height')
-plt.xlabel('Height (htm3)')
+plt.title('Height Violin Plot')
+plt.xlabel('Height')
 plt.show()

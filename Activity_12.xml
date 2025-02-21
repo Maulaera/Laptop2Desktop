@@ -5,6 +5,12 @@
         <address class = 'USA'> 12 Cat Way</address>
     </contact>
     <date>2019-10-01</date>
+    
+    <manufacturer> Meow Mix </manufacturer>
+    <contact>
+        <address class = 'USA'> 14 Cat Way </address>
+    </contact>
+    <date> 2019-08-14</date>
 </catfood>
 
 

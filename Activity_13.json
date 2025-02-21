@@ -1,0 +1,19 @@
+{
+    "bookstore": [
+        {
+            "category": "Sci-Fi",
+            "title": "2001",
+            "lang":"en",
+            "author": "Arthur C. Clarke",
+            "price": "$30.00",
+            "year": "1968"
+        },
+        {
+            "title": "Story about a True Man",
+            "lang": "rs",
+            "author": "Boris Polevoy",
+            "price": "$20.00",
+            "year": "1952"
+        }
+    ]
+}

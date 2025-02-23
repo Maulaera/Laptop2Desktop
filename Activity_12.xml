@@ -1,16 +1,20 @@
-<?xml version  = "1.0" encoding="UTF=8"?>
+<?xml version  = "1.0" encoding="UTF-8"?>
 <catfood type = 'basic'>
-    <manufacturer> Purina </manufacturer>
-    <contact>
-        <address class = 'USA'> 12 Cat Way</address>
-    </contact>
-    <date>2019-10-01</date>
+    <brand>
+        <manufacturer> Purina </manufacturer>
+        <contact>
+            <address class = 'USA'> 12 Cat Way</address>
+        </contact>
+        <date>2019-10-01</date>
+    </brand>
     
-    <manufacturer> Meow Mix </manufacturer>
-    <contact>
-        <address class = 'USA'> 14 Cat Way </address>
-    </contact>
-    <date> 2019-08-14</date>
+    <brand>
+        <manufacturer> Meow Mix </manufacturer>
+        <contact>
+            <address class = 'USA'> 14 Cat Way </address>
+        </contact>
+        <date> 2019-08-14</date>
+    </brand>
 </catfood>
 
 

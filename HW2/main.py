@@ -3,4 +3,10 @@
 
 import pandas as pd
 
-# Task one: Load data file into Pandas Data frame called "Gold"
+# Task One: Load data file into Pandas Data frame called "Gold"
+
+gold = pd.read_csv("daily_gold_rate.csv")
+
+# Task Two: List Data Types of df_gold and the first 10 rows/items
+print("Data Types:\n " , gold.dtypes)
+print("\nGold Data Frame:\n", gold.iloc[0:10])

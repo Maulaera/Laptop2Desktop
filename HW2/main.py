@@ -28,3 +28,8 @@ print("\nUSD Gold Descending:\n", np.sort(gold_usd_2020and2021)[::-1])
 range_price = np.max(gold_usd_2020and2021) - np.min(gold_usd_2020and2021)
 range_price = round(range_price,2)
 print("\nThe USD Range:\n",range_price)
+
+# Task Five: Using mask to fill in missing data
+date_mask = (gold['Date'] >= "1985-01-01") & (gold['Date'] <= "1985-01-04")
+gold['CNY'] = gold['CNY'].mask(date_mask & gold['CNY'].isna(), gold['USD'] * 2.82)
+print("\nMissing Gold Rates:\n",gold['CNY'])

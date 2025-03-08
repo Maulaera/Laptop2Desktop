@@ -83,3 +83,9 @@ plt.ylabel("Gold Rate (EUR)")
 plt.xticks(yearly_gold_rate['Year'])     
 plt.grid(True)                     
 plt.show()
+
+# Task 9: Descriptive Analysis vs Diagnostic Analysis
+# Descriptive Analytics tells you what happened in the past
+# Diagnostic Analytics helps you understand what happened in the past
+# Tasks 4,6,7,8 were descriptive
+# Tasks 1,2,3,5 were diagnostic

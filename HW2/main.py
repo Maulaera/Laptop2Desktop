@@ -49,4 +49,16 @@ print("\nEUR:",lowest_eur_month,lowest_eur_value)
 
 lowest_inr_month = gold.loc[gold['INR'].idxmin(), 'Date']
 lowest_inr_value = gold['INR'].min()
-print("\nINR:",lowest_inr_month,lowest_inr_value)
+print("\nINR:",lowest_inr_month,lowest_inr_value,"\n")
+
+# Task 7: 
+gold['Prev_GBP'] = gold['GBP'].shift(1)  
+gold['Next_GBP'] = gold['GBP'].shift(-1) 
+
+gold['Remarks'] = gold.apply(lambda row: 'gold rally' if row['GBP'] > row['Prev_GBP'] and row['GBP'] > row['Next_GBP'] 
+                             else ('bearish gold market' if row['GBP'] < row['Prev_GBP'] and row['GBP'] < row['Next_GBP'] 
+                                   else 'stable'), axis=1)
+
+gold.drop(columns=['Prev_GBP', 'Next_GBP'], inplace=True)
+
+print("\n",gold[['Date','USD','EUR','GBP','INR','AED','CNY', 'Remarks']].head(10))

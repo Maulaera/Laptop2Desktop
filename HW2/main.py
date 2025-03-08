@@ -3,6 +3,8 @@
 
 import pandas as pd
 import numpy as np
+import seaborn as sb
+import matplotlib.pyplot as plt
 
 # Task One: Load data file into Pandas Data frame called "Gold"
 gold = pd.read_csv("daily_gold_rate.csv")
@@ -51,7 +53,7 @@ lowest_inr_month = gold.loc[gold['INR'].idxmin(), 'Date']
 lowest_inr_value = gold['INR'].min()
 print("\nINR:",lowest_inr_month,lowest_inr_value,"\n")
 
-# Task 7: 
+# Task 7: Remarks and Lambda Function
 gold['Prev_GBP'] = gold['GBP'].shift(1)  
 gold['Next_GBP'] = gold['GBP'].shift(-1) 
 
@@ -62,3 +64,22 @@ gold['Remarks'] = gold.apply(lambda row: 'gold rally' if row['GBP'] > row['Prev_
 gold.drop(columns=['Prev_GBP', 'Next_GBP'], inplace=True)
 
 print("\n",gold[['Date','USD','EUR','GBP','INR','AED','CNY', 'Remarks']].head(10))
+
+# Task 8: Seaborn chart
+# In 2011 there was a sharp drop in the gold rate. 
+# This is because of the euro area crsis.
+# It was a multi year debt and finanical crisis. It started with
+# the collasp of iceland's banking system
+# Source: https://www.investopedia.com/terms/e/european-sovereign-debt-crisis.asp#:~:text=The%20European%20sovereign%20debt%20crisis%20was%20a%20financial%20crisis%20sparked,breaking%20up%20the%20European%20Union.
+gold['Year'] = gold['Date'].dt.year
+yearly_gold_rate = gold.groupby('Year')[['USD', 'EUR', 'GBP', 'INR', 'AED', 'CNY']].mean().reset_index()
+
+sb.lineplot(data=yearly_gold_rate, x='Year', y='EUR', marker='o', color='blue')
+
+plt.title("Yearly Gold Rate in EUR")     
+plt.xlabel("Year")                       
+plt.ylabel("Gold Rate (EUR)")          
+
+plt.xticks(yearly_gold_rate['Year'])     
+plt.grid(True)                     
+plt.show()

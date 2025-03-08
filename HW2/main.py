@@ -33,3 +33,20 @@ print("\nThe USD Range:\n",range_price)
 date_mask = (gold['Date'] >= "1985-01-01") & (gold['Date'] <= "1985-01-04")
 gold['CNY'] = gold['CNY'].mask(date_mask & gold['CNY'].isna(), gold['USD'] * 2.82)
 print("\nMissing Gold Rates:\n",gold['CNY'])
+
+# Task 6: Slice year 2021 and output the lowest
+gold_rate_2021 = gold[gold['Date'].dt.year == 2021]
+gold_2021_summary = gold_rate_2021.groupby(gold_rate_2021['Date'].dt.month)['INR'].agg(['mean', 'max', 'min'])
+print("\nInr By Month:\n",gold_2021_summary)
+
+lowest_usd_month = gold.loc[gold['USD'].idxmin(), 'Date']
+lowest_usd_value = gold['USD'].min()
+print("\nUSD:",lowest_usd_month,lowest_usd_value)
+
+lowest_eur_month = gold.loc[gold['EUR'].idxmin(), 'Date']
+lowest_eur_value = gold['EUR'].min()
+print("\nEUR:",lowest_eur_month,lowest_eur_value)
+
+lowest_inr_month = gold.loc[gold['INR'].idxmin(), 'Date']
+lowest_inr_value = gold['INR'].min()
+print("\nINR:",lowest_inr_month,lowest_inr_value)
